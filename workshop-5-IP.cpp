@@ -82,3 +82,5 @@ void fourthPoint(){
     - La diferencia simétrica entre los dos vectores (elementos que no se repiten en ambos).*/
 
 }
+
+//Nota: ejercicios en la carpeta de projects o en campus para descargar.
