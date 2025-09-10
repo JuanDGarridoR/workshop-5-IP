@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "workshop-5-IP.cpp", // aquí va tu archivo principal
+                "-o",
+                "workshop-5-IP.exe" // nombre del ejecutable que se generará
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

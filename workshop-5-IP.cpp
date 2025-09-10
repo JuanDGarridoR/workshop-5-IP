@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -15,6 +16,8 @@ int main(){
         cout<<"=====Taller #5 - IP====="<<endl;
         cout<<"1. Punto uno."<<endl;
         cout<<"2. Punto dos."<<endl;
+        cout<<"3. Punto tres."<<endl;
+        cout<<"4. Punto cuatro."<<endl;
         cout<<"0. Salir."<<endl;
         cout<<"\nDigite la opcion a la que desea ingresar: ";
         cin>>option;
@@ -51,19 +54,25 @@ int main(){
 }
 
 void firstPoint(){
-    /*Elabore un programa que, dado un vector de números enteros ordenado y con 
-    posibles repeticiones, genere un nuevo vector en el que solo aparezcan los 
-    valores únicos (sin duplicados). Finalmente, muestre en pantalla el nuevo vector resultante.*/
 
-
-    int size=9, initialVector[size]={1,2,3,3,3,4,5,5,6,7}, finalVector[size], position=0;
+    int size=10, initialVector[size]={1,2,3,3,3,4,5,5,6,7}, finalVector[size], position=0;
 
     for(int i=0; i<size; i++){
-        if(initialVector[i]!=initialVector[i+1]){
-            //Por terminar
+        if(i==0 || initialVector[i]!=initialVector[i-1]){
+
+            finalVector[position]=initialVector[i];
+            position++;
         }
     }
 
+    cout<<"\nResultado: ";
+
+    for(int i=0; i<position; i++){
+        
+        cout<<finalVector[i]<<"/";
+    }
+
+    cout<<endl;
 }
 
 void secondPoint(){
@@ -74,23 +83,37 @@ void secondPoint(){
     - Indique la cantidad de meses cuya cosecha fue inferior al promedio.
     - Determine el mes con mayor cosecha.*/
 
-    int monthlyTons[11];
+    int months=11, monthlyTons[months], tonesAverage=0;
 
-    for(int i=0; i<monthlyTons[]; i++){
+    for(int i=0; i<months ; i++){
 
-        cout<<"Digite cuantas toneladas se cosecharon en el mes #"<<i+1;
+        cout<<"Digite cuantas toneladas se cosecharon en el mes #"<<i+1<<" :";
         cin>>monthlyTons[i];
 
+        tonesAverage+=monthlyTons[i];
     }
+    
+    tonesAverage=tonesAverage/12;
 
+    cout<<"\nEl promedio de toneladas anual fue de: "<<tonesAverage<<endl;
 }
 
 void thirdPoint(){
-    /*Se tienen dos vectores del mismo tamaño con valores enteros del 1 al 10. Elabore un 
-    programa que realice la multiplicación entre los elementos de ambos vectores, tomando el primer 
-    elemento del primer vector con el último elemento del segundo vector, el segundo con el penúltimo, 
-    y así sucesivamente. Muestre el vector resultante en pantalla.*/
 
+    int size=10, vectorOne[size]={1,2,3,4,5,6,7,8,9,10}, vectorTwo[size]={10,9,8,7,6,5,4,3,2,1}, results[size];
+
+    for(int i=0; i<size; i++){
+        results[i]=vectorOne[i]*vectorTwo[size-i-1];
+    }
+
+    cout<<"\nResultado: ";
+
+    for(int i=0; i<size; i++){
+        
+        cout<<results[i]<<"/";
+    }
+
+    cout<<endl;
 }
 
 void fourthPoint(){
@@ -100,5 +123,3 @@ void fourthPoint(){
     - La diferencia simétrica entre los dos vectores (elementos que no se repiten en ambos).*/
 
 }
-
-//Nota: ejercicios en la carpeta de projects o en campus para descargar.
