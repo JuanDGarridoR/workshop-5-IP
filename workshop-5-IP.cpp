@@ -55,6 +55,15 @@ void firstPoint(){
     posibles repeticiones, genere un nuevo vector en el que solo aparezcan los 
     valores únicos (sin duplicados). Finalmente, muestre en pantalla el nuevo vector resultante.*/
 
+
+    int size=9, initialVector[size]={1,2,3,3,3,4,5,5,6,7}, finalVector[size], position=0;
+
+    for(int i=0; i<size; i++){
+        if(initialVector[i]!=initialVector[i+1]){
+            //Por terminar
+        }
+    }
+
 }
 
 void secondPoint(){
@@ -64,6 +73,15 @@ void secondPoint(){
     - Indique la cantidad de meses cuya cosecha fue superior al promedio.
     - Indique la cantidad de meses cuya cosecha fue inferior al promedio.
     - Determine el mes con mayor cosecha.*/
+
+    int monthlyTons[11];
+
+    for(int i=0; i<monthlyTons[]; i++){
+
+        cout<<"Digite cuantas toneladas se cosecharon en el mes #"<<i+1;
+        cin>>monthlyTons[i];
+
+    }
 
 }
 
