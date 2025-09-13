@@ -5,6 +5,10 @@ using namespace std;
 
 void firstPoint();
 void secondPoint();
+double tonsAverage(int[], int);
+int monthsAboveAverage(int[], int, double);
+int monthsBelowAverage(int[], int, double);
+int highestHarvest(int[], int);
 void thirdPoint();
 void fourthPoint();
 
@@ -76,26 +80,82 @@ void firstPoint(){
 }
 
 void secondPoint(){
-    /*En un arreglo unidimensional se almacenan las toneladas de cereal cosechadas durante 
-    los 12 meses del año. Elabore un programa que:
-    - Calcule el promedio anual de toneladas cosechadas.
-    - Indique la cantidad de meses cuya cosecha fue superior al promedio.
-    - Indique la cantidad de meses cuya cosecha fue inferior al promedio.
-    - Determine el mes con mayor cosecha.*/
 
-    int months=11, monthlyTons[months], tonesAverage=0;
+    int months=12, monthlyTons[months];
+    double average=0.0;
 
     for(int i=0; i<months ; i++){
 
-        cout<<"Digite cuantas toneladas se cosecharon en el mes #"<<i+1<<" :";
+        cout<<"Digite cuantas toneladas se cosecharon en el mes #"<<i+1<<": ";
         cin>>monthlyTons[i];
-
-        tonesAverage+=monthlyTons[i];
     }
-    
-    tonesAverage=tonesAverage/12;
 
-    cout<<"\nEl promedio de toneladas anual fue de: "<<tonesAverage<<endl;
+    average=tonsAverage(monthlyTons, months);
+
+    cout<<"\nEl promedio de toneladas anual fue de: "<<average<<endl;
+    cout<<"La cantidad de meses mayores al promedio fue de: #"<<monthsAboveAverage(monthlyTons, months, average)<<endl;
+    cout<<"La cantidad de meses inferiores al promedio fue de: #"<<monthsBelowAverage(monthlyTons, months, average)<<endl;
+    cout<<"El mes con la cosecha mas alta fue el: #"<<highestHarvest(monthlyTons, months)<<endl;
+}
+
+double tonsAverage(int monthlyTons[], int months){
+
+    double average=0.0;
+
+    for(int i=0; i<months; i++){
+
+        average+=monthlyTons[i];
+    }
+
+    average=average/months;
+
+    return average;
+}
+
+int monthsAboveAverage(int monthlyTons[], int months, double average){
+
+    int counter=0;
+
+    for(int i=0; i<months; i++){
+		
+		if(monthlyTons[i]>average){
+			
+			counter++;	
+		}
+	}
+	
+	return counter;
+}
+
+int monthsBelowAverage(int monthlyTons[], int months, double average){
+
+    int counter=0;
+
+    for(int i=0; i<months; i++){
+		
+		if(monthlyTons[i]<average){
+			
+			counter++;	
+		}
+	}
+	
+	return counter;
+}
+
+int highestHarvest(int monthlyTons[], int months){
+
+    int aux=0, month=0;
+	
+	for(int i=0; i<months; i++){
+			
+		if(monthlyTons[i]>aux){
+			
+			aux=monthlyTons[i];
+			month=i+1;			
+		}
+	}
+	
+	return month;
 }
 
 void thirdPoint(){
