@@ -11,9 +11,9 @@ int monthsBelowAverage(int[], int, double);
 int highestHarvest(int[], int);
 void thirdPoint();
 void fourthPoint();
-void vectorUnion(int[], int[], int size);
-void vectorIntersection(int[], int[], int size);
-void vectorDifference(int[], int[], int size);
+void vectorUnion(int[], int[], int);
+void vectorIntersection(int[], int[], int);
+void vectorDifference(int[], int[], int);
 
 int main(){
 
