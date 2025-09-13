@@ -7,9 +7,9 @@
             "command": "g++",
             "args": [
                 "-g",
-                "workshop-5-IP.cpp", // aquí va tu archivo principal
+                "workshop-5-IP.cpp",
                 "-o",
-                "workshop-5-IP.exe" // nombre del ejecutable que se generará
+                "workshop-5-IP.exe"
             ],
             "group": {
                 "kind": "build",

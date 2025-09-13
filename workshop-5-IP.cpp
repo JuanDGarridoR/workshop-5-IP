@@ -11,6 +11,9 @@ int monthsBelowAverage(int[], int, double);
 int highestHarvest(int[], int);
 void thirdPoint();
 void fourthPoint();
+void vectorUnion(int[], int[], int size);
+void vectorIntersection(int[], int[], int size);
+void vectorDifference(int[], int[], int size);
 
 int main(){
 
@@ -177,9 +180,105 @@ void thirdPoint(){
 }
 
 void fourthPoint(){
-    /*Dados dos vectores de igual tamaño con valores enteros, elabore un programa que calcule y muestre:
-    - La unión de los dos vectores.
-    - La intersección de los vectores (elementos comunes).
-    - La diferencia simétrica entre los dos vectores (elementos que no se repiten en ambos).*/
 
+    int firstVector[]={1, 2, 3, 4, 5}, secondVector[]={4, 5, 6, 7, 8, 9}, size=5;
+
+    vectorUnion(firstVector, secondVector, size);
+    vectorIntersection(firstVector, secondVector, size);
+    vectorDifference(firstVector, secondVector, size);
+}
+
+void vectorUnion(int firstVector[], int secondVector[], int size){
+
+    int aux=size*2;
+    int finalVector[aux];
+
+ 	for(int i=0; i<size; i++){
+		
+		finalVector[i]=firstVector[i];
+		finalVector[size+i]=secondVector[i];
+	}
+
+	cout<<"\nUnion: ";
+			
+	for(int i=0; i<aux;i++){
+								
+		cout<<finalVector[i]<<"/";		
+	}   
+    cout<<endl;
+}
+
+void vectorIntersection(int firstVector[], int secondVector[], int size){
+
+    int finalVector[size], aux=0;
+	
+	for(int i=0;i<size;i++){
+		
+		for(int j=0; j<size; j++){
+			
+            if(firstVector[i]==secondVector[j]){
+                
+                finalVector[aux]=firstVector[i];
+                aux++;
+            }		 	
+		}
+	}
+	
+	cout<<"Interseccion: "<<endl;
+	
+    for(int i=0; i<aux;i++){
+				
+		cout<<finalVector[i]<<"/";
+				
+	}
+    cout<<endl;
+}
+
+void vectorDifference(int firstVector[], int secondVector[], int size){
+
+    int finalVector[size], aux=0;
+	bool verify=true;
+	
+	for(int i=0;i<size;i++){
+	
+	    verify=true;
+		
+		for(int j=0; j<size; j++){
+			
+		    if(firstVector[i]==secondVector[j]){
+			
+			    verify=false;
+		    }	 	
+		}
+		
+		if(verify){	
+			finalVector[aux]=firstVector[i];
+			aux++;
+		}
+	}
+	
+	for(int i=0;i<size;i++){
+	
+	    verify=true;
+		
+		for(int j=0; j<size; j++){
+			
+		    if(secondVector[i]==firstVector[j]){
+			
+			    verify=false;
+		    }	 	
+		}
+		
+		if(verify){	
+			finalVector[aux]=secondVector[i];
+			aux++;
+		}
+	}
+	
+	cout<<"Diferencia: "<<endl;
+	for(int i=0; i<aux;i++){
+								
+		cout<<finalVector[i]<<"/";			
+	}
+    cout<<endl;
 }
